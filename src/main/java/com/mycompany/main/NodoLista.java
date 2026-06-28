@@ -5,9 +5,9 @@ public class NodoLista {
     Pedido dato;
     NodoLista siguiente;
 
-    public NodoLista(Pedido dato, NodoLista siguiente) {
+    public NodoLista(Pedido dato) {
         this.dato = dato;
-        this.siguiente = siguiente;
+        this.siguiente = null;
     }
     
 }
