@@ -11,12 +11,12 @@ package com.mycompany.main;
 //esta clase representa un nodo de el arbol binario
 public class NodoBST {
     
-    int dato; // almacera el valor del dato a ingresar
+    Pedido pedido;
     NodoBST izquierda; 
     NodoBST derecha;
     
-    public NodoBST(int dato){ // el constructor 
-        this.dato = dato;
+    public NodoBST(Pedido pedido){ // el constructor 
+        this.pedido = pedido;
         
         // el nodo tiene que estar vacio para comenzar
         izquierda = null;
