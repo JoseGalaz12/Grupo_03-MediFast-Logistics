@@ -41,9 +41,16 @@ public class Pedido {
     public int getPrioridad() {
         return nivelPrioridad;
     }
+    public String getCodigoPedido(){
+        return String.valueOf(codigoPedido);
+    }
 
     @Override
     public String toString() {
-        return "Pedido{" + "codigoPedido=" + codigoPedido + ", nombreInstitucion=" + nombreInstitucion + '}';
+        return "-" + codigoPedido + "-" + nombreInstitucion + 
+                " | " + tipoMedicamento + 
+                " | Prioridad: " + nivelPrioridad +
+                " | Estado: " + estadoPedido + 
+                " | Entrega: " + fechaMaximaEntregar;
     }
 }
