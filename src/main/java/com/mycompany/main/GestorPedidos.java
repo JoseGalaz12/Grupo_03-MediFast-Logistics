@@ -7,12 +7,14 @@ public class GestorPedidos {
     private Cola cola;
     private ArbolBST arbol;
     private Pila historial;
+    private ArbolAVL arbolAVL;
 
     public GestorPedidos() {
         lista = new ListaDinamica();
         cola = new Cola();
         arbol = new ArbolBST();
         historial = new Pila();
+        arbolAVL = new ArbolAVL();
     }
 
     public void registrarPedido(Scanner sc) {
@@ -54,6 +56,7 @@ public class GestorPedidos {
         lista.agregar(pedido);
         cola.encolar(pedido);
         arbol.insertar(pedido);
+        arbolAVL.insertar(pedido);
 
         System.out.println("Pedido registrado correctamente.");
     }
@@ -85,7 +88,8 @@ public class GestorPedidos {
         int codigo = Integer.parseInt(sc.nextLine());
 
         lista.eliminar(codigo);
-
+        arbol.eliminar(codigo);
+        
         System.out.println("Pedido eliminado.");
 
     }
@@ -137,6 +141,11 @@ public class GestorPedidos {
     
     public void mostrarHistorial(){
         historial.mostrarHistorial();
+    }
+    
+    public void mostrarAVL(){
+        System.out.println("---ARBOLAVL Ordenamiento por prioridad---");
+        arbolAVL.inOrden();
     }
 
 }
