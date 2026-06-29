@@ -8,6 +8,19 @@ package com.mycompany.main;
  *
  * @author sophy
  */
+//esta clase representa un nodo de el arbol binario
 public class NodoBST {
     
+    Pedido pedido;
+    NodoBST izquierda; 
+    NodoBST derecha;
+    
+    public NodoBST(Pedido pedido){ // el constructor 
+        this.pedido = pedido;
+        
+        // el nodo tiene que estar vacio para comenzar
+        izquierda = null;
+        derecha = null;
+    }
+  
 }
