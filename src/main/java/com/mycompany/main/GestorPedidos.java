@@ -6,11 +6,13 @@ public class GestorPedidos {
     private ListaDinamica lista;
     private Cola cola;
     private ArbolBST arbol;
+    private Pila historial;
 
     public GestorPedidos() {
         lista = new ListaDinamica();
         cola = new Cola();
         arbol = new ArbolBST();
+        historial = new Pila();
     }
 
     public void registrarPedido(Scanner sc) {
@@ -109,6 +111,32 @@ public class GestorPedidos {
 
         arbol.inOrden();
 
+    }
+    
+    public void modificarPedido(Scanner sc){
+        System.out.println("Codigo del pedido que quiere modificar");
+        int codigo = Integer.parseInt(sc.nextLine());
+        
+        //Buscando el pedido en el arbol
+        Pedido pedido = arbol.buscar(codigo);
+        
+        if (pedido == null){
+            System.out.println("Su pedido no fue encontrado");
+            return;
+        }
+        
+        //Se guarda el estado anterior en la pila
+        historial.apilar(pedido);
+        
+        //Modfique el pedido
+        System.out.println("Nuevo estado: ");
+        String nuevoEstado = sc.nextLine();
+        pedido.setEstadoPedido(nuevoEstado);
+        System.out.println("Su pedido fue modificado ");
+    }
+    
+    public void mostrarHistorial(){
+        historial.mostrarHistorial();
     }
 
 }
