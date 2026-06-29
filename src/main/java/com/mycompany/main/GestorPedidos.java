@@ -81,6 +81,40 @@ public class GestorPedidos {
         }
 
     }
+    
+    public void busquedaSecuencial(Scanner sc){
+        System.out.println("Codigo que quiere buscar: ");
+        int codigo = Integer.parseInt(sc.nextLine());
+        
+        Pedido[] pedidos = lista.convertirArreglo();
+        if(pedidos.length == 0){
+            System.out.println("No hay pedidos registrados");
+            return;
+        }
+        Busqueda.busquedaSecuencial(pedidos, codigo);
+    }
+    
+    public void busquedaBinaria(Scanner sc){
+        System.out.println("Codigo que quiere buscar: ");
+        int codigo = Integer.parseInt(sc.nextLine());
+        
+        Pedido[] pedidos = lista.convertirArreglo();
+        if(pedidos.length == 0){
+            System.out.println("No hay pedidos registrados");
+            return;
+        }
+        
+        for(int i = 0; i < pedidos.length - 1; i++){
+            for(int j = 0; j < pedidos.length - i - 1; j++){
+                if(pedidos[j].getCodigo() > pedidos[j+1].getCodigo()){
+                    Pedido temp = pedidos[j];
+                    pedidos[j] = pedidos[j+1];
+                    pedidos[j+1] = temp;
+                }    
+            }
+        }
+        Busqueda.busquedaBinaria(pedidos, codigo);
+    }
 
     public void eliminarPedido(Scanner sc) {
 
@@ -146,6 +180,39 @@ public class GestorPedidos {
     public void mostrarAVL(){
         System.out.println("---ARBOLAVL Ordenamiento por prioridad---");
         arbolAVL.inOrden();
+    }
+    
+    public void mostrarCola(){
+        cola.mostrarCola();
+    }
+    
+    public void mostrarBSTPreOrden(){
+        arbol.preOrden();
+    }
+    
+    public void mostrarBSTPostOrden(){
+        arbol.postOrden();
+    }
+    
+    public void verificarVencimiento(){
+        Pedido[] pedidos = lista.convertirArreglo();
+        
+        if(pedidos.length == 0){
+            System.out.println("No hay pedidos registrados");
+            return;
+        }
+        System.out.println("---PEDIDOS QUE ESTAN POR VENCER---");
+        boolean encontrado = false;
+        
+        for(Pedido p : pedidos){
+            if(p.getPrioridad() <= 2){
+                System.out.println("POR VENCER: " + p);
+                encontrado = true;
+            }
+        }
+        if(!encontrado){
+            System.out.println("No hay pedidos Por vencer");
+        }
     }
 
 }

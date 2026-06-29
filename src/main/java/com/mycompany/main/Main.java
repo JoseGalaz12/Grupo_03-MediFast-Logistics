@@ -76,7 +76,7 @@ public class Main {
                     break;
                     
                 case 10:
-                    gestor.mostrarBstPreOrden();
+                    gestor.mostrarBSTPreOrden();
                     break;
                     
                 case 11:
@@ -94,7 +94,7 @@ public class Main {
                     gestor.busquedaBinaria(sc);
                     break;
                 case 15:
-                    gestor.vertificarVencimiento();
+                    gestor.verificarVencimiento();
                     break;
 
                 case 0:
