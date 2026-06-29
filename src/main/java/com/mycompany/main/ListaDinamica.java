@@ -35,28 +35,27 @@ public class ListaDinamica {
         tamano++;
         System.out.println("Pedido agregado");
     }
-    public boolean eliminar(String codigoPedido){
+   public boolean eliminar(int codigoPedido){
         if(estaVacia()){ // 1) revisa si hay pedidos registrados
             System.out.println("No hay pedidos registrados");
             return false;
         }
         
         //2) revisa si el pedido a eliminar es el primero de la lista
-        if (cabeza.dato.getCodigoPedido().equals(codigoPedido)){
+        if (cabeza.dato.getCodigo() == (codigoPedido)){
             cabeza = cabeza.siguiente;
             tamano--;
             System.out.println("Pedido eliminado con exito");
             return true;
         }
-        //3 si no es el primero de la lista busca en el resto de ella
         NodoLista actual = cabeza;
-        while (actual.siguiente != null){
-            if(actual.siguiente.dato.getCodigoPedido().equals(codigoPedido)){
-                actual.siguiente = actual.siguiente.siguiente;
-                tamano--;
-                System.out.println("Pedido eliminado con exito");
-                return true;
-            }
+    while (actual.siguiente != null){
+        if(actual.siguiente.dato.getCodigo() == codigoPedido){ //cambiado a ==
+            actual.siguiente = actual.siguiente.siguiente;
+            tamano--;
+            System.out.println("Pedido eliminado con exito");
+            return true;
+        }
             actual = actual.siguiente;
         }
         //En caso de queno se encuentra en el resto
