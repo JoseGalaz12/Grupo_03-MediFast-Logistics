@@ -41,8 +41,9 @@ public class Pedido {
     public int getPrioridad() {
         return nivelPrioridad;
     }
-    public String getCodigoPedido(){
-        return String.valueOf(codigoPedido);
+        
+    public void setEstadoPedido(String estadoPedido){
+        this.estadoPedido = estadoPedido;
     }
 
     @Override

@@ -76,7 +76,7 @@ public class ListaDinamica {
         System.out.println("Total: " + tamano + " pedidos");
         System.out.println();
     }
-    public Pedido buscar(String codigoPedido){
+    public Pedido buscar(int codigoPedido){
         if(estaVacia()){ //Verifica que la lista no este vacia
             System.out.println("No hay pedidos registrados");
             return null;
@@ -84,7 +84,7 @@ public class ListaDinamica {
         
         NodoLista actual = cabeza;//Revisa en la lista
         while (actual != null){
-            if (actual.dato.getCodigoPedido().equals((codigoPedido))){
+            if (actual.dato.getCodigo() == codigoPedido){
                 System.out.println("Pedido encontrado");
                 return actual.dato;
             }

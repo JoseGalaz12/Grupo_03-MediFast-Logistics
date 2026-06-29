@@ -7,7 +7,7 @@ public class NodoAVL {
     NodoAVL derecha;
     int altura;
 
-    public NodoAVL(Pedido pedido, NodoAVL izquierda, NodoAVL derecha, int altura) {
+    public NodoAVL(Pedido pedido) {
         this.pedido = pedido;
         izquierda = null;
         derecha = null;

@@ -10,9 +10,11 @@ public class ArbolBST {
 
    public void insertar(Pedido pedido) {
     raiz = insertarRec(raiz, pedido);
-}
 
-private NodoBST insertarRec(NodoBST raiz, Pedido pedido) {
+   }
+
+
+   private NodoBST insertarRec(NodoBST raiz, Pedido pedido) {
     if (raiz == null) {
         raiz = new NodoBST(pedido);
         return raiz;
@@ -24,7 +26,8 @@ private NodoBST insertarRec(NodoBST raiz, Pedido pedido) {
         raiz.derecha = insertarRec(raiz.derecha, pedido);
     }
     return raiz;
-}
+
+   }
 
     public Pedido buscar(int codigo) {
 
@@ -46,6 +49,33 @@ private NodoBST insertarRec(NodoBST raiz, Pedido pedido) {
 
         return null;
     }
+    public void eliminar(int codigo){
+        raiz = eliminarRecursivo(raiz, codigo);
+    }
+    private NodoBST eliminarRecursivo(NodoBST raiz, int codigo){
+        if (raiz == null){
+            return null;
+        }
+        if(codigo < raiz.pedido.getCodigo()){
+            raiz.izquierda = eliminarRecursivo(raiz.izquierda, codigo);
+        }else if (codigo > raiz.pedido.getCodigo()){
+            raiz.derecha = eliminarRecursivo(raiz.derecha, codigo);
+        }else{
+            if (raiz.izquierda == null){
+                return raiz.derecha;
+            }else if (raiz.derecha == null){
+                return raiz.izquierda;
+            }
+            //Nodo con dos hijos
+        
+            raiz.pedido = encontrarMinimo(raiz.derecha);
+            raiz.derecha = eliminarRecursivo(raiz.derecha, raiz.pedido.getCodigo());
+        }
+        return raiz;
+        
+    }
+    
+    
 
     public void inOrden() {
         inOrdenRec(raiz);
@@ -90,6 +120,15 @@ private NodoBST insertarRec(NodoBST raiz, Pedido pedido) {
 
         }
 
+    }
+
+    private Pedido encontrarMinimo(NodoBST nodo) {
+        Pedido minimo = raiz.pedido;
+        while(raiz.izquierda != null){
+            minimo = raiz.izquierda.pedido;
+            nodo = raiz.izquierda;
+        }
+        return minimo;
     }
 
 }
