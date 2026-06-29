@@ -24,6 +24,14 @@ public class Main {
             System.out.println("5. Ordenar (Bubble Sort)");
             System.out.println("6. Ordenar (Merge Sort)");
             System.out.println("7. Mostrar BST (InOrden)");
+            System.out.println("8. Mostrar cola de pedidos");
+            System.out.println("9. Mostrar historial de cambios");
+            System.out.println("10. Mostrar BST preOrden");
+            System.out.println("11. Mostrar BST postOrden");
+            System.out.println("12. Mostrar AVL por prioridad");
+            System.out.println("13. Busqueda secuencial");
+            System.out.println("14. Busqueda binaria");
+            System.out.println("15. Ver pedidos que estan por vencer");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -57,6 +65,36 @@ public class Main {
 
                 case 7:
                     gestor.mostrarBST();
+                    break;
+                    
+                case 8:  
+                    gestor.mostrarCola();
+                    break;
+                
+                case 9:
+                    gestor.mostrarHistorial();
+                    break;
+                    
+                case 10:
+                    gestor.mostrarBstPreOrden();
+                    break;
+                    
+                case 11:
+                    gestor.mostrarBSTPostOrden();
+                    break;
+                    
+                case 12:
+                    gestor.mostrarAVL();
+                    break;
+                case 13:
+                    gestor.busquedaSecuencial(sc);
+                    break;
+                    
+                case 14:
+                    gestor.busquedaBinaria(sc);
+                    break;
+                case 15:
+                    gestor.vertificarVencimiento();
                     break;
 
                 case 0:
