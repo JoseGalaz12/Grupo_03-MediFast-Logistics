@@ -32,6 +32,7 @@ public class Main {
             System.out.println("13. Busqueda secuencial");
             System.out.println("14. Busqueda binaria");
             System.out.println("15. Ver pedidos que estan por vencer");
+            System.out.println("16. Modificar pedido");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -95,6 +96,10 @@ public class Main {
                     break;
                 case 15:
                     gestor.verificarVencimiento();
+                    break;
+                    
+                case 16:
+                    gestor.modificarPedido(sc);
                     break;
 
                 case 0:
